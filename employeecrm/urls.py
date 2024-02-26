@@ -23,5 +23,6 @@ urlpatterns = [
     path('employees/add',views.EmployeeCreateView.as_view(),name="emp-add"),
     path('employees/all',views.EmployeeListView.as_view(),name="emp-all"),
     path('employees/<int:pk>',views.EmployeeDetailView.as_view(),name="emp-details"),
-    path('employees/<int:pk>/remove',views.EmployeeDeleteView.as_view(),name="emp-delete")
+    path('employees/<int:pk>/remove',views.EmployeeDeleteView.as_view(),name="emp-delete"),
+    path('employees/<int:pk>/change',views.EmployeeUpdateView.as_view(),name="emp-edit"),
 ]

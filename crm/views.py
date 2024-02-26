@@ -38,4 +38,24 @@ class EmployeeDeleteView(View):
         id=kwargs.get("pk")
         Employees.objects.get(id=id).delete()
         return redirect("emp-all")
+    
+
+class EmployeeUpdateView(View):
+    def get(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        obj=Employees.objects.get(id=id)
+        form=EmployeeModelForm(instance=obj)
+        return render(request,"emp_edit.html",{"form":form})
+    
+    def post(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        obj=Employees.objects.get(id=id)
+        form=EmployeeModelForm(request.POST,instance=obj)
+        if form.is_valid():
+            form.save()
+            print("changed")
+            return redirect("emp-all")
+        else:
+            return render(request,"emp_edit.html",{"form":form})
+        
         
