@@ -1,0 +1,72 @@
+class Employees(models.Model):
+    name=models.CharField(max_length=100)
+    department=models.CharField(max_length=100)
+    salary=models.PositiveIntegerField()
+    email=models.EmailField(unique=True)
+    age=models.PositiveIntegerField()
+    contact=models.CharField(max_length=10)
+
+
+for workspace==>
+==> python manage.py shell
+
+to import model from application <apk name is crm> ==>
+==> from crm.models import Employees
+
+
+----------------creating new object------------------
+orm query for creating a new employee object ==>
+==> Employee.objects.create(name="hari",department="hr".........)
+
+
+----------------fetching all record------------------
+orm query for fetching all record ==>
+==> qs=Employees.objects.all()
+     
+
+
+----------------fetching specific record------------------
+orm query fetching a specific employee details ==>
+==> qs=Employees.objects.get(id=1)
+
+
+----------------filtering employee records------------------
+orm query for filtering employee records ==>
+==> qs=Employees.objects.filter(department="hr")
+
+orm query to check salary is greater than 50000 ==>
+==> qs=Employees.objects.filter(salary__gte=50000)  <gte=greater than equalto>
+
+orm query to check salary is less than 50000==>
+==> qs=Employees.objects.filter(salary__lte=50000)   <lte=less than equalto>
+
+__gte >=
+__lte <=
+__gt  >
+__lt  <
+
+
+----------------exclude an object------------------
+
+orm query for excluding objects  ==>
+==> qs=Employees.objects.exclude(department="hr")
+
+
+----------------update an object------------------
+
+orm query for update objects  ==>
+==> qs=Employees.objects.filter(id=2).update(contact=987456322,age=32)
+
+----------------delete the employee------------------
+
+orm query for delete  ==>
+==> qs=Employees.objects.filter(id=1).delete()
+
+----------------sorting------------------
+
+orm query for sorting in ascending order ==>
+==> qs=Employees.objects.all().order_by("salary")
+
+orm query for sorting in descending order ==>
+==> qs=Employees.objects.all().order_by("-salary")
+
