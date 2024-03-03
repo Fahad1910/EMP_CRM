@@ -1,5 +1,8 @@
 from django import forms
 from crm.models import Employees
+from django.contrib.auth.models import User
+
+
 
 # class EmployeeForm(forms.Form):
 #     name=forms.CharField()
@@ -24,3 +27,10 @@ class EmployeeModelForm(forms.ModelForm):
             "age":forms.NumberInput(attrs={"class":"form-control"}),
             "contact":forms.Textarea(attrs={"class":"form-control","rows":5}),
         }
+
+
+class RegistrationForm(forms.ModelForm):
+
+    class Meta:
+        model=User
+        fields=["username","email","password"]

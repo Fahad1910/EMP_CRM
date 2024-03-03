@@ -68,3 +68,6 @@ class EmployeeUpdateView(View):
             messages.error(request,"failed to make changes")
             return render(request,"emp_edit.html",{"form":form})
         
+
+# localhost:8000/signup/
+        
