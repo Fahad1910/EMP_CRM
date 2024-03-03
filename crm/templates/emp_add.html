@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{%extends 'base.html'%}
 
-    <h1>Add New Employee</h1>
-    <div class="container">
-        <form action="" method="post">
+{%block body_block%}
 
-            {%csrf_token%}
-            {{form.as_p}}
+<h3>Add New Employee</h3>
 
-            <button type="submit">Add</button>
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+
+        {%csrf_token%}
+        {{form.as_p}}
+
+        <button type="submit">Add</button>
 
 
-        </form>
+    </form>
 
-    </div>
-    
-</body>
-</html>
+</div>
+
+{%endblock%}

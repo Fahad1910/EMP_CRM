@@ -10,6 +10,7 @@ class Employees(models.Model):
     email=models.EmailField(unique=True)
     age=models.PositiveIntegerField()
     contact=models.CharField(null=True,max_length=10,)
+    profile_pic=models.ImageField(upload_to="images",null=True)
 
 
     def __str__(self):

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from crm import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,5 @@ urlpatterns = [
     path('employees/<int:pk>',views.EmployeeDetailView.as_view(),name="emp-details"),
     path('employees/<int:pk>/remove',views.EmployeeDeleteView.as_view(),name="emp-delete"),
     path('employees/<int:pk>/change',views.EmployeeUpdateView.as_view(),name="emp-edit"),
-]
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
