@@ -11,7 +11,8 @@ class Employees(models.Model):
     email=models.EmailField(unique=True)
     age=models.PositiveIntegerField()
     contact=models.CharField(null=True,max_length=10,)
-    profile_pic=models.ImageField(upload_to="images",null=True)
+    profile_pic=models.ImageField(upload_to="images",null=True,blank=True) #{null used for databse},{blankis for form}
+    dob=models.DateField(null=True,blank=True)
 
 
     def __str__(self):
