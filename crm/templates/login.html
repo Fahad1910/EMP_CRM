@@ -11,6 +11,22 @@
 </head>
 <body class="port grad">
 
+    <img src="{%static 'images/pexels-james-wheeler-414523.jpg'%}" alt="" width="100%" height="100%">
+    <div class="container d-flex justify-content-center mt-5">
+
+        <form action="" method="post" class="border shadow w-50 p-5">
+            <h1 class="text-center fw-bold">Login</h1>
+
+            {%csrf_token%}
+            {{form.as_p}}
+
+            <button type="submit">Login</button>  new user? <a href="{%url 'register'%}">Register Now</a>
+
+        </form>
+
+    </div>
+
+
     {%if messages%}
 
     {%for m in messages%}
@@ -34,23 +50,6 @@
     {%endfor%}
     
 {%endif%}
-
-    
-
-    <div class="container d-flex justify-content-center mt-5">
-
-        <form action="" method="post" class="border shadow w-50 p-5">
-            <h1 class="text-center fw-bold">Login</h1>
-
-            {%csrf_token%}
-            {{form.as_p}}
-
-            <button type="submit">Login</button>  new user? <a href="{%url 'register'%}">Register Now</a>
-
-        </form>
-
-    </div>
-
     
     
 </body>
